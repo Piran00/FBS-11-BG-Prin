@@ -1,2 +1,2 @@
 # FBS-11-BG-Prin
-Alle aufgaben aus Prin Dokumentiere ich hier
+Dokumentation des Kurses Praktische Informatik der 11BG1 der Ferdinand-Braun-Schule
