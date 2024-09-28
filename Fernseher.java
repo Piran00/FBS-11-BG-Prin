@@ -1,75 +1,56 @@
-public class Fernseher { //Datenfeld
-    boolean aus;
-    boolean mute;
-    int volume;
-    int channel;
+public class Fernseher {
+	private boolean aus; // Datenfelder
+	private boolean stumm;
+	private int lautstärke;
+	private int sender;
 
-    public Fernseher() { //Konstruktor
-        aus = true;
-        mute = false;
-        volume = 5;
-        channel = 1;
+	public Fernseher() { // Konstruktor
+		aus = true;
+		stumm = false;
+		lautstärke = 5;
+		sender = 1;
+	}
 
-    }
+	public void anschalten() {
+		aus = !aus; // Mit "!" kann man den Wert eines Booleans umkehren
+	}
 
-    public void An_schalten() {
-        aus = !aus; // Mit ! koennen wir den wert eines Boolean umkehren
-    }
+	public void stumm() {
+		stumm = !stumm; // Selbes wie darüber; "stumm" wird mit jedem Methoden-Aufruf umgekehrt
+	}
 
-    public void Mute() {
-        mute = !mute; // Hier kehren wir wieder den wert von mute um jedes mal wenn wir diese methode benutzen
+	public void lautstärke_erhöhen() {
+		if (lautstärke + 1 <= 10) { // Hier passiert: Falls "lautstärke" + 1 kleiner gleich 10, dann...
+			lautstärke++; // Mit "++" kann man den Wert einer Zahl (hier "lautstärke") um 1 erhöhen
+		}
 
-    }
+		stumm = false;
+	}
 
-    public void increase_volume()
-    {
-        if (mute) // Da mute ein Boolean ist koennen wir hier das if abkuerzen indem wir abfragen ob mute true ist
-        {
-            mute = !mute; // Wie vorher kehren wir mute einfach um
-        }
-        if (volume + 1 <= 10)
-        {
-            volume++; // Mit ++ koennen wir den wert von volumen um 1 erhoehen
-        }
-    }
+	public void lautstärke_verringern() {
+		if (lautstärke - 1 >= 0) { // Hier passiert: Falls "lautstärke" - 1 größer gleich 10, dann...
+			lautstärke --; // Wie oben wird der Wert von "lautstärke" um 1 verändert; nur diesmal wird dieser subtrahiert
+		}
 
-    public void decrease_volume()
-    {
-        if (!mute)
-        {
-            mute = !mute;
-        }
-        if (volume - 1 >= 0)
-        {
-            volume --;
-        }
+		stumm = false;
+	}
 
+	public void sender_auswählen(int usr_selection) {
+		if (usr_selection <= 30) {
+			sender = usr_selection;
+		}
+	}
 
-    }
-
-    public void select_channel(int usr_selection)
-    {
-        if (usr_selection <= 30)
-        {
-            channel = usr_selection;
-        }
-    }
-
-    public void return_state()
-    {
-        if (aus) // Wenn aus true ist also der Fernseher aus ist
-        {
-            System.out.println("Der Fernseher ist aus");
-
-        }
-        else
-        {
-            System.out.println("Der Fernseher ist an");
-            System.out.println("Der Fernseher ist Gemuted" + mute);
-            System.out.println("Lautstaerke" + volume);
-            System.out.println("Sender" + channel);
-        }
-    }
+	public void return_state() {
+		if (aus) { // Wenn "aus" den Wert "true" hat (also der Fernseher aus ist), dann...
+			System.out.println("An/Aus: false");
+		} else { // ansonsten...
+			System.out.println("An/Aus: true");
+			System.out.println("Stumm: " + stumm);
+			System.out.println("Lautstärke: " + lautstärke);
+			System.out.println("Sender: " + sender);
+		}
+	}
 
 
 

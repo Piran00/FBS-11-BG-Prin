@@ -1,55 +1,43 @@
-public class Heizung
-{
-    double temperature; // Datenfelder
-    double min;
-    double max;
-    double schrittweite;
-    public Heizung(double usr_min ,double usr_max )
-    {
-        min = usr_min; // Konstruktor
-        max = usr_max;
-        temperature = 15;
-        schrittweite = 5.0;
-    }
+public class Heizung {
+	double temperatur; // Datenfelder
+	double min;
+	double max;
+	double schrittweite;
 
-    public void set_schrittweite(double usr_in)
-    {
-        if (usr_in > 0) // CHecken ob schrittweite goesser also 0 ist
-        {
-            schrittweite = usr_in;
-        }
+	public Heizung(double usr_min, double usr_max ) { // Konstruktor
+		min = usr_min;
+		max = usr_max;
+		temperatur = 15;
+		schrittweite = 5.0;
+	}
 
-    }
+	public void set_schrittweite(double usr_in) {
+		if (usr_in > 0) { // Checken, ob "schrittweite" größer als 0 ist
+			schrittweite = usr_in;
+		}
+	}
 
-    public void waermer()
-    {
-        if (temperature + schrittweite > max) // Ueberpruefen ob die neue Temperatur goesser als das maximum waere
-        {
-            temperature = max;
-        }
-        else
-        {
-        temperature += schrittweite; //mit += kuerzen wir temperature = temperature + schrittweite ab;
-        }
-    }
+	public void wärmer() {
+		if (temperatur + schrittweite > max) { // Überprüfen, ob die neue Temperatur größer als das "max" ist
+			temperatur = max;
+		} else {
+			temperatur += schrittweite; // Mit "+="" kürzt man "temperatur = temperatur + schrittweite" ab
+		}
+	}
 
 
-    public void kaelter()
-    {
-        if (temperature - schrittweite <min)
-        {
-            temperature = min;
-        }
-        else
-        {
-            temperature -= schrittweite; //mit -= kuerzen wir temperature = temperature - schrittweite ab
-        }
-    }
+	public void kälter()
+	{
+		if (temperatur - schrittweite < min) {
+			temperatur = min;
+		} else {
+			temperatur -= schrittweite; // Mit "-=" kürzt man "temperatur = temperatur - schrittweite" ab
+		}
+	}
 
 
-    public double return_temp()
-    {
-        return temperature;
-    }
+	public double return_temp() {
+		return temperatur;
+	}
 
 }
